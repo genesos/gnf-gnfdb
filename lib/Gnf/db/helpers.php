@@ -22,6 +22,7 @@ use Gnf\db\Helper\GnfSqlRaw;
 use Gnf\db\Helper\GnfSqlStrcat;
 use Gnf\db\Helper\GnfSqlTable;
 use Gnf\db\Helper\GnfSqlWhere;
+use Gnf\db\Helper\GnfSqlRegexp;
 
 if (!function_exists('sqlAdd')) {
 	function sqlAdd($in)
@@ -305,5 +306,11 @@ if (!function_exists('sqlNull')) {
 	function sqlNull()
 	{
 		return new GnfSqlNull();
+	}
+}
+if (!function_exists('sqlRegexp')) {
+	function sqlRegexp($in)
+	{
+		return new GnfSqlRegexp($in);
 	}
 }

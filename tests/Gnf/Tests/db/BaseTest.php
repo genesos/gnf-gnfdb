@@ -55,6 +55,10 @@ class BaseTest extends \PHPUnit_Framework_TestCase
 				['a' => sqlLikeBegin('any prefix?')]
 			],
 			[
+				'`a` REGEXP "str1|str2|str3"',
+				['a' => sqlRegexp("str1|str2|str3")]
+			],
+			[
 				'`a` = __\'\'` + 123 + 5 + `alive`',
 				['a' => sqlRaw('__\'\'` + 123 + 5 + `alive`')]
 			],
