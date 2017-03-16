@@ -93,7 +93,10 @@ $where은 column => condition 으로 구성된 배열이다.
     - `like '%{$keyword}%'`
   - `sqlLikeBegin($keyword)`
     - `like '{$keyword}%'`
-
+- REGEXP 구문을 지원한다 (MySql Only)
+  - `sqlRegexp($regexp)`
+    - `REGEXP '{$regexp}'`
+    
 **조건 작성 예제**
 
 ```php

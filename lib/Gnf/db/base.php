@@ -149,6 +149,9 @@ abstract class base implements gnfDbinterface
 
 			return '';
 		}
+		if (is_a($value, '\Gnf\db\Helper\GnfSqlRegexp')) {
+			return self::escapeColumnName($key) . ' REGEXP "' . $this->escapeLiteral($value->dat) . '"';
+		}
 		if (is_a($value, '\Gnf\db\Helper\GnfSqlLike')) {
 			return self::escapeColumnName($key) . ' like "%' . $this->escapeLiteral($value->dat) . '%"';
 		}
