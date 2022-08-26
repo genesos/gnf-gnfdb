@@ -14,7 +14,7 @@ class BaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testWhere($sql, $where)
     {
-        $base = new BaseTestTarget;
+        $base = new BaseTestTarget();
 
         $this->assertEquals($sql, $base->sqlDump('?', sqlWhere($where)));
     }
@@ -231,7 +231,7 @@ class BaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testWhereException($where)
     {
-        $base = new BaseTestTarget;
+        $base = new BaseTestTarget();
         $base->sqlDump('?', sqlWhere($where));
     }
 
@@ -252,7 +252,7 @@ class BaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testInsert($sql, $insert)
     {
-        $base = new BaseTestTarget;
+        $base = new BaseTestTarget();
 
         $base->sqlDumpBegin();
         $base->sqlInsert('TABLE', $insert);
@@ -291,7 +291,7 @@ class BaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testInsertBulk($sql, $keys, $values)
     {
-        $base = new BaseTestTarget;
+        $base = new BaseTestTarget();
 
         $base->sqlDumpBegin();
         $base->sqlInsertBulk('TABLE', $keys, $values);
@@ -324,7 +324,7 @@ class BaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testInsertException($insert)
     {
-        $base = new BaseTestTarget;
+        $base = new BaseTestTarget();
 
         $base->sqlDumpBegin();
         $base->sqlInsert('TABLE', $insert);
@@ -352,7 +352,7 @@ class BaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testUpsert($sql, $insert)
     {
-        $base = new BaseTestTarget;
+        $base = new BaseTestTarget();
 
         $base->sqlDumpBegin();
         $base->sqlInsertOrUpdate('TABLE', $insert);
@@ -391,7 +391,7 @@ class BaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testUpsertBulk($sql, $keys, $valuess)
     {
-        $base = new BaseTestTarget;
+        $base = new BaseTestTarget();
 
         $base->sqlDumpBegin();
         $base->sqlInsertOrUpdateBulk('TABLE', $keys, $valuess);
@@ -423,7 +423,7 @@ class BaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testUpdate($sql, $update)
     {
-        $base = new BaseTestTarget;
+        $base = new BaseTestTarget();
 
         $base->sqlDumpBegin();
         $base->sqlUpdate('TABLE', $update, ['a' => 1]);
@@ -477,7 +477,7 @@ class BaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testTable($sql, $join)
     {
-        $base = new BaseTestTarget;
+        $base = new BaseTestTarget();
 
         $this->assertEquals($sql, $base->sqlDump('?', $join));
     }
@@ -571,7 +571,7 @@ class BaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testEscapeItem($result, $sql, $item)
     {
-        $base = new BaseTestTarget;
+        $base = new BaseTestTarget();
 
         $this->assertEquals($result, $base->sqlDump($sql, $item));
     }
@@ -621,7 +621,7 @@ class BaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testEscapeItemException($sql, $item)
     {
-        $base = new BaseTestTarget;
+        $base = new BaseTestTarget();
 
         $base->sqlDump($sql, $item);
     }
@@ -653,7 +653,7 @@ class BaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testException($sql, $where)
     {
-        $base = new BaseTestTarget;
+        $base = new BaseTestTarget();
 
         $base->sqlDump($sql, sqlWhere($where));
     }
@@ -686,7 +686,7 @@ class BaseTest extends \PHPUnit_Framework_TestCase
      */
     public function testUpdateException($update, $where)
     {
-        $base = new BaseTestTarget;
+        $base = new BaseTestTarget();
 
         $base->sqlUpdate('TABLE', $update, $where);
     }

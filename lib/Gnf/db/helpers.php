@@ -54,7 +54,6 @@ if (!function_exists('sqlLike')) {
 
         return new GnfSqlLike($in);
     }
-
 }
 if (!function_exists('sqlLikeBegin')) {
     function sqlLikeBegin($in)
@@ -74,7 +73,6 @@ if (!function_exists('sqlRaw')) {
     {
         return new GnfSqlRaw($in);
     }
-
 }
 if (!function_exists('sqlTable')) {
     function sqlTable($in)
@@ -257,7 +255,6 @@ if (!function_exists('sqlLesserEqual')) {
 
         return new GnfSqlLesserEqual($in);
     }
-
 }
 if (!function_exists('sqlLesser')) {
     function sqlLesser($in)

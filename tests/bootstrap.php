@@ -8,4 +8,4 @@ $autoloader = require __DIR__ . '/../vendor/autoload.php';
 $autoloader->add('Gnf\Tests', __DIR__);
 $autoloader->add('Gnf', __DIR__ . '/../lib/');
 
-$base = new BaseTestTarget;
+$base = new BaseTestTarget();

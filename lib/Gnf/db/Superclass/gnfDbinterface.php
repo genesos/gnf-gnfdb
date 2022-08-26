@@ -1,4 +1,5 @@
 <?php
+
 namespace Gnf\db\Superclass;
 
 interface gnfDbinterface

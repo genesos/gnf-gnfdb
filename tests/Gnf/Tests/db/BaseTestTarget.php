@@ -1,4 +1,5 @@
 <?php
+
 namespace Gnf\Tests\db;
 
 use Gnf\db\base;

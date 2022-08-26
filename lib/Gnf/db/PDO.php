@@ -1,4 +1,5 @@
 <?php
+
 namespace Gnf\db;
 
 class PDO extends base

@@ -490,8 +490,8 @@ abstract class base implements gnfDbinterface
                 return self::escapeColumnName($column);
             } elseif (is_a($value, '\Gnf\db\Helper\GnfSqlStrcat') && is_string($column)) {//only for update
                 return 'concat(ifnull(' . self::escapeColumnName($column) . ', ""), ' . $this->escapeItemExceptNull(
-                        $value->dat
-                    ) . ')';
+                    $value->dat
+                ) . ')';
             }
 
             return $this->escapeItemExceptNull($value->dat);
