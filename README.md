@@ -4,6 +4,12 @@
 [![Latest Stable Version](https://poser.pugx.org/ridibooks/platform-gnfdb/v/stable)](https://packagist.org/packages/ridibooks/platform-gnfdb)
 [![License](https://poser.pugx.org/ridibooks/platform-gnfdb/license)](https://packagist.org/packages/ridibooks/platform-gnfdb)
 
+여기는 `ridi` 모노레포에 [Git Subrepo](https://github.com/ingydotnet/git-subrepo)
+를 통해서 코드가 관리됩니다.
+
+**Warning**
+직접 commit하지 마세요.
+
 ## 0. 설치
 
 composer를 사용하여 설치 할 수 있다.
