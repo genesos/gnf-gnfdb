@@ -4,6 +4,7 @@ use Gnf\db\Helper\GnfSqlAdd;
 use Gnf\db\Helper\GnfSqlAnd;
 use Gnf\db\Helper\GnfSqlBetween;
 use Gnf\db\Helper\GnfSqlColumn;
+use Gnf\db\Helper\GnfSqlCompareOperator;
 use Gnf\db\Helper\GnfSqlGreater;
 use Gnf\db\Helper\GnfSqlGreaterEqual;
 use Gnf\db\Helper\GnfSqlJoin;
@@ -46,7 +47,7 @@ if (!function_exists('sqlLike')) {
     function sqlLike($in)
     {
         //__sqlNot을 포함관계에서 최상단으로
-        if (is_a($in, '\Gnf\db\Helper\GnfSqlNot') && is_a($in->dat, '\Gnf\db\Helper\GnfSqlCompareOperator')) {
+        if (is_a($in, GnfSqlNot::class) && is_a($in->dat, GnfSqlCompareOperator::class)) {
             $wrapper = new GnfSqlLike($in->dat);
 
             return new GnfSqlNot($wrapper);
@@ -59,7 +60,7 @@ if (!function_exists('sqlLikeBegin')) {
     function sqlLikeBegin($in)
     {
         //__sqlNot을 포함관계에서 최상단으로
-        if (is_a($in, '\Gnf\db\Helper\GnfSqlNot') && is_a($in->dat, '\Gnf\db\Helper\GnfSqlCompareOperator')) {
+        if (is_a($in, GnfSqlNot::class) && is_a($in->dat, GnfSqlCompareOperator::class)) {
             $wrapper = new GnfSqlLikeBegin($in->dat);
 
             return new GnfSqlNot($wrapper);
@@ -77,7 +78,7 @@ if (!function_exists('sqlRaw')) {
 if (!function_exists('sqlTable')) {
     function sqlTable($in)
     {
-        if (is_a($in, '\Gnf\db\Helper\GnfSqlTable')) {
+        if (is_a($in, GnfSqlTable::class)) {
             return $in;
         }
 
@@ -87,7 +88,7 @@ if (!function_exists('sqlTable')) {
 if (!function_exists('sqlColumn')) {
     function sqlColumn($in)
     {
-        if (is_a($in, '\Gnf\db\Helper\GnfSqlColumn')) {
+        if (is_a($in, GnfSqlColumn::class)) {
             return $in;
         }
 
@@ -125,8 +126,16 @@ if (!function_exists('sqlInnerJoin')) {
     }
 }
 if (!function_exists('sqlWhere')) {
-    function sqlWhere(array $in)
+    /**
+     * @param $in array|GnfSqlWhere
+     * @return GnfSqlWhere
+     */
+    function sqlWhere($in)
     {
+        if (is_a($in, GnfSqlWhere::class)) {
+            return $in;
+        }
+
         return new GnfSqlWhere($in);
     }
 }
